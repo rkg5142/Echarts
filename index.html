@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+       <script src="echarts.js"></script>
+       <title>
+           E-chart
+       </title>
+	   <h1>Richard Gazzo E-Chart Assignment</h1>
+	   <h2>Drill into each node to see the nodes child</h2>
+       <script src="https://d3js.org/d3.v7.min.js"></script>
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript">
+
+
+//const url = "https://raw.githubusercontent.com/rkg5142/week9/main/Week-9-TreeMap-main/data/tree.json"
+
+        let dom = document.getElementById("container");
+        let treeMap = echarts.init(dom);
+        treeMap.setOption({
+        
+            series: [
+            {
+                type: 'treemap',
+                leafDepth: 1,
+                data: [
+                    {
+                      name: 'A',
+                      value: 20,
+                      itemStyle: {color: 'yellow'},
+                      children: [
+                        {
+                          name: 'B',
+                          value: 20,
+                          itemStyle: {color: 'purple'},
+		            	        children: [
+                            {
+                              name: 'D',
+                              value: 30,
+                              itemStyle: {color: 'orange'},
+                            },
+		            		        {
+		            		          name: 'E',
+		            		          value: 50,
+                              itemStyle: {color: 'orange'}
+		            		        }
+                        ]},
+                            {
+		            		      name: 'C',
+		            		      value: 1,
+                          itemStyle: {color: 'pink'},
+                          children: [
+                            {
+		            		          name: 'F',
+		            		          value: 20,
+                              itemStyle: {color: 'grey'},
+                        
+		            	          },
+		            	          {
+		            		          name: 'G',
+		            		          value: 40,
+                              itemStyle: {color: 'grey'}
+                        
+		            	          },
+		            	          {
+		            		          name: 'H',
+		            		          value: 60,
+                              itemStyle: {color: 'grey'},
+		            	          }
+                        ]
+		            	    },   
+		                ]
+                  }
+		            ],
+                label: {        // show or hide labels
+                    show: true,
+                    formatter: '{b}',
+                    backgroundColor: 'rgba(0,0,0,0.3)'
+                },
+              }      
+            ],
+          }),true;            
+
+       </script>
+   </body>
+</html>         
+
+
